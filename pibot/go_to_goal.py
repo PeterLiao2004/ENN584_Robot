@@ -3,6 +3,7 @@ from pibot_client import PiBot
 import math
 import numpy as np
 import cv2
+import time
 bot = PiBot(ip="172.19.232.145", localiser_ip='egb439localiser2')
 
 
@@ -24,6 +25,9 @@ def wrap_to_pi(x):
 
 while(1):
     pose = bot.getLocalizerPose()
+    if pose is None:
+        time.sleep(0.5)
+        continue
     # if (pose[0] > (goal[0] - acceptable_diff) or pose[0] < (goal[0] + acceptable_diff)) and (pose[1] > (goal[1] - acceptable_diff) or pose[1] < (goal[1] + acceptable_diff)):
     #     bot.setVelocity(0,0)
     #     break
@@ -50,4 +54,4 @@ while(1):
     #     bot.setVelocity(0,0)
     #     break
 
-    
+    time.sleep(0.1)
