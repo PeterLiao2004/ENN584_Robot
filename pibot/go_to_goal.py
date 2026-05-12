@@ -12,9 +12,9 @@ goal = [1.5, 1.5]
 acceptable_diff = 0.1
 
 # Proportional gain for angular velocity
-k = 10
+k = 15
 
-max_speed = 50
+max_speed = 60
 
 W = 0.145 #width between wheels
 R = 0.065 #radius of wheel
