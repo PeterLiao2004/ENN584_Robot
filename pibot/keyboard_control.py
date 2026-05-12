@@ -2,9 +2,10 @@ from pibot_client import PiBot
 import cv2
 import numpy as np
 
-bot = PiBot(ip="172.19.232.145", localiser_ip='egb439localiser2')
+bot = PiBot(ip="172.19.232.145")
 
-speed = 20
+speed = 60
+turn_speed = 25
 
 print("Controls:")
 print("W = forward")
@@ -21,7 +22,7 @@ while True:
 
     cv2.imshow("PiBot Control", img)
 
-    key = cv2.waitKey(50) & 0xFF
+    key = cv2.waitKey(10) & 0xFF
 
     left = 0
     right = 0
@@ -38,13 +39,13 @@ while True:
 
     # Left
     elif key == ord('a'):
-        left = -speed
-        right = speed
+        left = -turn_speed
+        right = turn_speed
 
     # Right
     elif key == ord('d'):
-        left = speed
-        right = -speed
+        left = turn_speed
+        right = -turn_speed
 
     # Stop
     elif key == ord(' '):
