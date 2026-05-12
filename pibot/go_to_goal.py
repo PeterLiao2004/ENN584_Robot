@@ -52,12 +52,12 @@ while(1):
     theta_dot_R = v_linear + omega_targ
     theta_dot_L = v_linear - omega_targ
     # Cap wheel velocity
-    theta_dot_R = max(min(theta_dot_R, max_speed), -max_speed)
-    theta_dot_L = max(min(theta_dot_L, max_speed), -max_speed)
+    # theta_dot_R = max(min(theta_dot_R, max_speed), -max_speed)
+    # theta_dot_L = max(min(theta_dot_L, max_speed), -max_speed)
     
     # Calculation using diff drive dimensions
-    # wheel_R = (v_linear + omega_targ * W / 2) / R
-    # wheel_L = (v_linear - omega_targ * W / 2) / R
+    wheel_R = (v_linear + omega_targ * W / 2) / R
+    wheel_L = (v_linear - omega_targ * W / 2) / R
     
     # Set the wheel velocities
     bot.setVelocity(int(theta_dot_L), int(theta_dot_R))
