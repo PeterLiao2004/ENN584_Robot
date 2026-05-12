@@ -1,5 +1,5 @@
 from pibot_client import PiBot
-bot = PiBot(ip="172.19.232.188")
+bot = PiBot(ip="172.19.232.150")
 
 bot.resetEncoder()
 enc_left_beg, enc_right_beg = bot.getEncoders()

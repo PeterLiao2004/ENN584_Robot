@@ -1,9 +1,10 @@
 #Go to goal!
 from pibot_client import PiBot
 import math
+import time
 import numpy as np
 import cv2
-bot = PiBot(ip="172.19.232.145", localiser_ip='egb439localiser2')
+bot = PiBot(ip="172.19.232.150", localiser_ip='egb439localiser2')
 
 
 goal = [1.5, 1.5]
@@ -27,6 +28,11 @@ while(1):
     # if (pose[0] > (goal[0] - acceptable_diff) or pose[0] < (goal[0] + acceptable_diff)) and (pose[1] > (goal[1] - acceptable_diff) or pose[1] < (goal[1] + acceptable_diff)):
     #     bot.setVelocity(0,0)
     #     break
+    
+    if pose is None:
+        print("Missed pose step\n")
+        time.sleep(0.2)
+        continue
 
 
     theta_targ = math.atan2((goal[1] - pose[1]), (goal[0] - pose[0]))
